@@ -1,0 +1,9 @@
+<a class="list-group-item clearfix recipe-items" (click)="onSelectRecipe()" href="#">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    <p class="list-group-item-text">{{ recipe.description }}</p>
+  </div>
+  <span class="pull-right">
+        <img [height]="100" [ngSrc]="recipe.imagePath" [width]="100" alt="{{recipe.name}}" class="img-responsive">
+  </span>
+</a>
