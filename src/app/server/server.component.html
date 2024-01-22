@@ -1,0 +1,29 @@
+<p>server works!</p>
+<button (click)="loadTaskTitle()" class="btn btn-primary">Click me</button>
+<h4>Hello {{ taskTitle }}</h4>
+<button (click)="checkCount()" class="btn btn-danger">Increase count</button>
+<h5>We're counting the clicks</h5>
+<h4>Counter value : {{ clickCount }}</h4>
+
+<h4 [hidden]="clickCount > 0">This is hidden when click count increases using the hidden.</h4>
+<p *ngIf="clickCount > 10; else showMe">I'm only shown using if, if the count button is clicked more than 10 times</p>
+<ng-template #showMe>
+  <p>
+    I'm the else part which is removed when the count button is clicked more than 10 times.
+  </p>
+</ng-template>
+@if (clickCount > 10) {
+  <p>And I'm shown using the &#64;if on angular</p>
+} @else {
+  <p>I'm the &#64;else part.</p>
+}
+<div class="row col-md-2">
+  <input [(ngModel)]="taskTitle" class="form form-control">
+</div>
+<h1>&#64;For loop Practice</h1>
+<button (click)="createServer()" class="btn btn-success">Add server</button>
+<ul class="row col-md-6 list-group">
+  @for (server of servers; track servers; let index = $index) {
+    <li [ngClass]="{'list-group-item-success': ((index+1)%2)==0}" class="list-group-item">{{ server }}</li>
+  }
+</ul>

@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img [alt]="recipe.name" [src]="recipe.imagePath" class="img-responsive" height="300" width="300">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ recipe.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group">
+      <button aria-expanded="false" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" type="button">
+        Manage
+      </button>
+      <ul appDropdown class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" (click)="transferToShoppingList()">To Shopping List</a></li>
+        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
+        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ recipe.description }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      @for (ingredient of recipe.ingredients; track ingredient) {
+        <li class="list-group-item">{{ingredient.name}} - {{ingredient.amount}}</li>
+      }
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.recipe-items {
+  display: inline-flex;
+  width: 350px !important;
+}
+.pull-right {
+  margin-left: 25px;
+}
