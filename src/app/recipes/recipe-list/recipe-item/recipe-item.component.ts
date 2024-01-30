@@ -1,23 +1,17 @@
 import {Component, Input} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {Recipe} from "../../recipe.model";
-import {RecipeService} from "../../recipe.service";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-item',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink, RouterLinkActive],
   templateUrl: './recipe-item.component.html',
   styleUrl: './recipe-item.component.css'
 })
 export class RecipeItemComponent {
-  constructor(private recipeService: RecipeService) {
-  }
-
   @Input() recipe!: Recipe;
+  @Input() index!: number;
 
-
-  onSelectRecipe() {
-    this.recipeService.recipeSelected.emit(this.recipe);
-  }
 }

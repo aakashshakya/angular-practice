@@ -14,7 +14,9 @@ import {UnlessDirective} from "./game/directives/unless.directive";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, RecipesComponent, ShoppingListComponent, BasicHighlightDirective, BetterHighlightDirective, UnlessDirective, //These are for emitter practice
+  imports: [CommonModule, RouterOutlet, HeaderComponent, RecipesComponent,
+    ShoppingListComponent, BasicHighlightDirective, BetterHighlightDirective,
+    UnlessDirective, //These are for emitter practice
     // GameControlComponent, OddComponent, EvenComponent
   ],
   templateUrl: './app.component.html',
