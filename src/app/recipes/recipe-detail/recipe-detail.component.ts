@@ -1,23 +1,33 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {Recipe} from "../recipe.model";
 import {DropdownDirective} from "../../shared/dropdown.directive";
 import {RecipeService} from "../recipe.service";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-detail',
   standalone: true,
   imports: [
     NgOptimizedImage,
-    DropdownDirective
+    DropdownDirective,
+    RouterLink
   ],
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.css'
 })
-export class RecipeDetailComponent {
-  @Input() recipe!: Recipe;
+export class RecipeDetailComponent implements OnInit {
+  recipe!: Recipe;
+  id!: number;
 
-  constructor(private recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+      this.recipe = this.recipeService.getRecipe(this.id);
+    });
   }
 
   transferToShoppingList() {

@@ -15,9 +15,9 @@
         Manage
       </button>
       <ul appDropdown class="dropdown-menu">
-        <li><a class="dropdown-item" href="#" (click)="transferToShoppingList()">To Shopping List</a></li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        <li><a class="dropdown-item"  (click)="transferToShoppingList()">To Shopping List</a></li>
+        <li><a class="dropdown-item" routerLink="edit">Edit Recipe</a></li>
+        <li><a class="dropdown-item" routerLink="delete">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
